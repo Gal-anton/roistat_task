@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Angalichin\RoistatTask;
-
 
 /**
  * Class JsonReport
@@ -23,12 +21,15 @@ class JsonReport implements ReportInterface
         if (!$result) {
             throw new \Exception('The problem while creating json occurred');
         }
+
         return $result;
     }
 
-    private function prepareData(array $data) {
+    private function prepareData(array $data)
+    {
         $preparedData = $data;
         $preparedData['url_count'] = count($data['url_count']);
+
         return $preparedData;
     }
 }

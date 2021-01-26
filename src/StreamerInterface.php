@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Angalichin\RoistatTask;
 
 interface StreamerInterface

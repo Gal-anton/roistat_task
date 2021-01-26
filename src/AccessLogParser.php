@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Angalichin\RoistatTask;
-
 
 /**
  * Class AccessLogParser
