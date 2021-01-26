@@ -28,9 +28,20 @@ class ParserProcessorTest extends TestCase
         $parser = new ParserProcessor($streamer);
         $parser->parseStream();
 
-        $expect = '{"view":3,"url_count":2,"traffic":46976,' .
-            '"crawlers":{"Google":1,"Bing":0,"Baidu":0,"Yandex":0},' .
-            '"statusCode":{"200":3}}';
+        $expect = "{\n" .
+            "    \"view\": 3,\n" .
+            "    \"url_count\": 2,\n" .
+            "    \"traffic\": 46976,\n" .
+            "    \"crawlers\": {\n" .
+            "        \"Google\": 1,\n" .
+            "        \"Bing\": 0,\n" .
+            "        \"Baidu\": 0,\n" .
+            "        \"Yandex\": 0\n" .
+            "    },\n" .
+            "    \"statusCode\": {\n" .
+            "        \"200\": 3\n" .
+            "    }\n" .
+            "}";
 
         $this->assertEquals($expect, $parser->report(new JsonReport()));
 
