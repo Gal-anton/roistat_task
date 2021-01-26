@@ -1,0 +1,39 @@
+{
+    "name": "angalichin/roistat_task",
+    "description": "Roistat test task. AccessLog file parser",
+    "keywords": [
+        "league",
+        "package"
+    ],
+    "homepage": "https://github.com/gal-anton/roistat_task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Galichin",
+            "email": "galichin-anton@yandex.ru",
+            "homepage": "http://author-website.example.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^8"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Angalichin\\RoistatTask\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Angalichin\\RoistatTask\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
