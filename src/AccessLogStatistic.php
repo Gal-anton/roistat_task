@@ -48,11 +48,11 @@ class AccessLogStatistic implements StatisticInterface
     }
 
     /**
-     * @param string $line
+     * @param string $info
      */
-    public function add(string $line)
+    public function add(string $info)
     {
-        $logInfo = $this->parser->parse($line);
+        $logInfo = $this->parser->parse($info);
         $url = $logInfo[6];
         $traffic = (int)$logInfo[9];
         $crawler = $logInfo[16];

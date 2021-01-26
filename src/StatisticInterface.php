@@ -4,7 +4,7 @@ namespace Angalichin\RoistatTask;
 
 interface StatisticInterface
 {
-    function add(string $line);
+    function add(string $info);
 
     function statistic();
 }
