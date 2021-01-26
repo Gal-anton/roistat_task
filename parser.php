@@ -4,11 +4,11 @@ use Angalichin\RoistatTask\FileStreamer;
 use Angalichin\RoistatTask\JsonReport;
 use Angalichin\RoistatTask\ParserProcessor;
 
-require_once "vendor/autoload.php";
+require_once 'vendor/autoload.php';
 
 try {
     if (count($argv) <= 1) {
-        throw new \Exception("The file path must be specified");
+        throw new \Exception('The file path must be specified');
     }
 
     $fileStreamer = new FileStreamer($argv[1]);

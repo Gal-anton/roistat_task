@@ -24,10 +24,10 @@ class ParserProcessor
      * @param StreamerInterface|null $streamer
      * @throws \Exception
      */
-    public function __construct(StreamerInterface $streamer = null)
+    public function __construct(?StreamerInterface $streamer = null)
     {
         if (is_null($streamer)) {
-            throw new \Exception("The streamer cannot be null");
+            throw new \Exception('The streamer cannot be null');
         }
         $this->streamer = $streamer;
     }
@@ -35,7 +35,7 @@ class ParserProcessor
     /**
      * @param StatisticInterface|null $statistic
      */
-    public function parseStream(StatisticInterface $statistic = null)
+    public function parseStream(?StatisticInterface $statistic = null)
     {
         $this->statistic = $statistic ?? new AccessLogStatistic();
 

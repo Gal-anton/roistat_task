@@ -4,6 +4,10 @@
 namespace Angalichin\RoistatTask;
 
 
+/**
+ * Class FileStreamer
+ * @package Angalichin\RoistatTask
+ */
 class FileStreamer implements StreamerInterface
 {
     /**
@@ -19,12 +23,12 @@ class FileStreamer implements StreamerInterface
     public function __construct(string $filePath)
     {
         if (!is_readable($filePath)) {
-            throw new \Exception("File is not readable or it does not exist");
+            throw new \Exception('File is not readable or it does not exist');
         }
 
-        $this->file = fopen($filePath, "r");
+        $this->file = fopen($filePath, 'r');
         if (!$this->file) {
-            throw new \Exception("The problem while opening file occurred");
+            throw new \Exception('The problem while opening file occurred');
         }
 
     }
@@ -33,7 +37,7 @@ class FileStreamer implements StreamerInterface
      * @return \Generator
      * @throws \Exception
      */
-    public function streamLines(): mixed
+    public function streamLines(): \Generator
     {
         while (!feof($this->file)) {
             $line = fgets($this->file);

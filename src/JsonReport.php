@@ -4,6 +4,10 @@
 namespace Angalichin\RoistatTask;
 
 
+/**
+ * Class JsonReport
+ * @package Angalichin\RoistatTask
+ */
 class JsonReport implements ReportInterface
 {
 
@@ -17,7 +21,7 @@ class JsonReport implements ReportInterface
         $preparedData = $this->prepareData($statistic);
         $result = json_encode($preparedData);
         if (!$result) {
-            throw new \Exception("The problem while creating json occurred");
+            throw new \Exception('The problem while creating json occurred');
         }
         return $result;
     }
