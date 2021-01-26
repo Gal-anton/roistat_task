@@ -14,7 +14,7 @@ class AccessLogParser implements ParserInterface
      */
     public function parse(string $line): array
     {
-        $charsToDelete = explode(',', '",),(,;,],[');
+        $charsToDelete = str_split('")(;][');
         $lineFormatted = str_replace($charsToDelete, '', $line);
 
         return explode(' ', $lineFormatted);
