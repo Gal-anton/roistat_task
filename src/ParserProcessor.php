@@ -23,7 +23,7 @@ class ParserProcessor
      * @param StreamerInterface|null $streamer
      * @throws \Exception
      */
-    public function __construct(?StreamerInterface $streamer = null)
+    public function __construct(?StreamerInterface $streamer)
     {
         if (is_null($streamer)) {
             throw new \Exception('The streamer cannot be null');
@@ -51,4 +51,5 @@ class ParserProcessor
     {
         return $report->createReport($this->statistic->statistic());
     }
+
 }
