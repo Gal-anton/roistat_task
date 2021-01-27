@@ -29,6 +29,13 @@ class AccessLogStatistic implements StatisticInterface
     ];
 
     /**
+     * @var array
+     */
+    private array $trafficIgnoreStatusCode = [
+        '301',
+    ];
+
+    /**
      * AccessLogStatistic constructor.
      */
     public function __construct()
@@ -59,9 +66,11 @@ class AccessLogStatistic implements StatisticInterface
         $statusCode = $logInfo[8];
         $this->addView();
         $this->addUrl($url);
-        $this->addTraffic($traffic);
-        $this->addCrawler($crawler);
         $this->addStatusCode($statusCode);
+        if (!in_array($statusCode, $this->trafficIgnoreStatusCode)) {
+            $this->addTraffic($traffic);
+        }
+        $this->addCrawler($crawler);
     }
 
     /**
@@ -91,6 +100,18 @@ class AccessLogStatistic implements StatisticInterface
     }
 
     /**
+     * @param string $statusCode
+     */
+    private function addStatusCode(string $statusCode)
+    {
+        if (!array_key_exists($statusCode, $this->statistic['statusCode'])) {
+            $this->statistic['statusCode'][$statusCode] = 1;
+        } else {
+            $this->statistic['statusCode'][$statusCode]++;
+        }
+    }
+
+    /**
      * @param int $traffic
      */
     private function addTraffic(int $traffic)
@@ -107,18 +128,6 @@ class AccessLogStatistic implements StatisticInterface
             if (str_contains($crawler, $existedCrawler)) {
                 $this->statistic['crawlers'][$existedCrawler]++;
             }
-        }
-    }
-
-    /**
-     * @param string $statusCode
-     */
-    private function addStatusCode(string $statusCode)
-    {
-        if (!array_key_exists($statusCode, $this->statistic['statusCode'])) {
-            $this->statistic['statusCode'][$statusCode] = 1;
-        } else {
-            $this->statistic['statusCode'][$statusCode]++;
         }
     }
 

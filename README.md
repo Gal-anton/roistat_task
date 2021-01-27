@@ -19,7 +19,7 @@
 ```{
     "view": 16,
     "url_count": 5,
-    "traffic": 212816,
+    "traffic": 187990,
     "crawlers": {
         "Google": 2,
         "Bing": 0,
